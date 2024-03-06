@@ -11,4 +11,4 @@ def torment_the_whale():
 if __name__ == "__main__":
     torment_the_whale()
 
-# pyinstaller --onefile --add-data "media\whale.png;media" --add-data "media\whale_icon.ico;media" --add-data "responses.json;." --windowed --icon=media\whale_icon.ico main.py
+# pyinstaller --onefile --add-data "media\whale.png;media" --add-data "media\whale_icon.ico;media" --add-data "watery_wonders.json;." --windowed --icon=media\whale_icon.ico main.py
