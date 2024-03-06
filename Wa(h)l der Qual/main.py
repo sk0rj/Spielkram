@@ -1,15 +1,13 @@
 from tkinter import Tk
-from functions import create_gui
+from class_WhaleGUI import WhaleGUI
 
-# Starten der Anwendung
+# Startet die Anwendung und öffnet das Hauptfenster
 def torment_the_whale():
-
     root = Tk()
-
-    create_gui(root)
-
+    app = WhaleGUI(root)
     root.mainloop()
 
+# Hauptausführungspunkt der Anwendung
 if __name__ == "__main__":
     torment_the_whale()
 
