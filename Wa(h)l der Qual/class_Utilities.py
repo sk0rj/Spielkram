@@ -11,7 +11,8 @@ class Utilities:
         except Exception:
             base_path = os.path.abspath(".")
         return os.path.join(base_path, relative_path)
-        
+
+
     # Lädt Daten aus der 'watery_wonders.json' und gibt die entsprechenden Abschnitte zurück
     @staticmethod
     def load_wonders(response_type):
@@ -35,11 +36,13 @@ class Utilities:
         else:
             return [], [], []
 
+
     # Generiert zufällig eine Orakelbeschreibung aus den geladenen Daten
     @staticmethod
     def generate_random_oracle_description():
         oracle_description = Utilities.load_wonders("oracle_description")
         return choice(oracle_description)
+
 
     # Verarbeitet die Benutzereingabe und aktualisiert das Ergebnislabel basierend auf Bedingungen und zufälligen Werten
     @staticmethod
@@ -57,12 +60,14 @@ class Utilities:
         except ValueError:
             result_label.config(text=choice(random_dumbass))
 
+
     # Generiert eine zufällige Zahl zwischen 1 und max_value
     @staticmethod
     def generate_random(max_value):
         min_value = 1
         choice_value = randint(min_value, max_value)
         return choice_value
+
 
     # Generiert zufällig eine positive oder negative Antwort
     @staticmethod
@@ -77,19 +82,21 @@ class Utilities:
             elif decision == 2:
                 result_label.config(text=choice(random_negative))
 
+
     # Handler-Methode für die Eingabetaste
     @staticmethod
     def on_enter_pressed(event, entry, result_label, random_responses, random_dumbass, special_responses):
         Utilities.user_input(entry, result_label, random_responses, random_dumbass, special_responses)
+
 
     # Limitiert die Eingabe auf 10 Zeichen
     @staticmethod
     def on_validate(P):
         return (len(P) <= 10)
     
-    # Zerstört alle Widgets im Hauptfenster, außer denen, die in main_gui enthalten sind
+
+    # Zerstört alle Widgets im Frame (__current_mode_frame)
     @staticmethod
-    def destroy_widgets(root, main_gui):
-        for widget in root.winfo_children():
-            if widget not in main_gui:
-                widget.destroy()
+    def destroy_widgets(frame):
+        for widget in frame.winfo_children():
+            widget.destroy()
